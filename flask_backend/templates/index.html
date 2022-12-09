@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1>Slippi files</h1>
+
+    <table>
+        <tr>
+            <th>Filename</th>
+            <th>Player 1</th>
+            <th>Player 2</th>
+        </tr>
+        {% for file in slippi_files %}
+        <tr>
+            <td>{{ file.filename }}</td>
+            <td>{{ file.connect_code1 }}</td>
+            <td>{{ file.connect_code2 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.file() }}
+        {{ form.submit() }}
+    </form>
+</div>
+{% endblock %}

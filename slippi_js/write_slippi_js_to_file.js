@@ -25,9 +25,9 @@ fs.readdir(directoryPath, function (err, files) {
       const settings = game.getSettings();
       const metadata = game.getMetadata();
       const stats = game.getStats();
-      console.log(stats['overall']);
+      // console.log(stats['overall']);
       let new_json = {'settings': settings,'metadata':metadata,'stats':stats};
-      let stats_string = JSON.stringify(new_json);
+      let stats_string = JSON.stringify(new_json, null, 4);
       fs.writeFileSync(output_folder + file_sub + '.json', stats_string, err => {
           if (err) {
             console.error(err);

@@ -17,7 +17,10 @@ The goal of this project is to provide a centralized repository for Slippi files
 
 ## Authors
 
-[@ChrisSchmitt98](https://twitter.com/ChrisSchmitt98)
+* Chris Schmitt
+    * Email: [Chris Schmitt](mailto:cjschmitt620@gmail.com)
+    * Twitter: [@ChrisSchmitt98](https://twitter.com/ChrisSchmitt98)
+
 
 ## Version History
 

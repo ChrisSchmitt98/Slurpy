@@ -1,7 +1,6 @@
 from os import listdir
 from os.path import isfile, join
-from slippi.parse import parse
-from slippi.parse import ParseEvent
+from slippi.parse import parse, ParseEvent
 from slippi import Game
 #import pandas as pd
 #import matplotlib.pyplot as plt

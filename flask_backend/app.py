@@ -15,21 +15,10 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'ultra_secret_key'
 app.config['UPLOAD_FOLDER'] = 'static\\files'
+global db 
 db = SQLAlchemy(app)
 
-class UploadFileForm(FlaskForm):
-    file = FileField("File", validators=[InputRequired()])
-    submit = SubmitField("Upload File")
-
-class SlippiFile(db.Model):
-    """A slippi action counts"""
-    id = db.Column(db.Integer, primary_key=True)
-    filename = db.Column(db.String(100), nullable=False)
-    connect_code1 = db.Column(db.String(10), nullable=False)
-    connect_code2 = db.Column(db.String(10), nullable=False)
-
-    def __repr__(self):
-        return "SlippiOverall('{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}','{}')".format(self.filename, self.connect_code, self.input_counts, self.total_damage, self.kill_count, self.successful_conversions, self.successful_conversion_ratio, self.inputs_per_minute, self.digital_inputs_per_minute, self.openings_per_kill, self.damage_per_opening, self.neutral_win_ratio, self.counter_hit_ratio, self.beneficial_trade_ratio, self.datetime)
+from models import *
 
 @app.route('/', methods=['POST','GET'])
 def index():

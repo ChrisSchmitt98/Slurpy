@@ -14,9 +14,11 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'ultra_secret_key'
-app.config['UPLOAD_FOLDER'] = 'static/files'
+app.config['UPLOAD_FOLDER'] = 'static\\files'
+##global db 
 db = SQLAlchemy(app)
 
+##from models import *
 class UploadFileForm(FlaskForm):
     file = FileField("File", validators=[InputRequired()])
     submit = SubmitField("Upload File")
@@ -43,7 +45,6 @@ def index():
         player1_tag = current_game.metadata.players[0].netplay.code
         player2_tag = current_game.metadata.players[1].netplay.code
         new_slippi_file = SlippiFile(filename=new_file.filename,connect_code1=player1_tag,connect_code2=player2_tag)
-        
         try:
             db.session.add(new_slippi_file)
             db.session.commit()

@@ -9,14 +9,14 @@ from wtforms.validators import InputRequired
 from slippi.parse import parse
 from slippi.parse import ParseEvent
 from slippi import Game
+from models import db
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'ultra_secret_key'
 app.config['UPLOAD_FOLDER'] = 'static\\files'
-##global db 
-db = SQLAlchemy(app)
+db.init_app(app)
 
 ##from models import *
 class UploadFileForm(FlaskForm):

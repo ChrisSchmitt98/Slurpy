@@ -18,7 +18,6 @@ app.config['SECRET_KEY'] = 'ultra_secret_key'
 app.config['UPLOAD_FOLDER'] = 'static\\files'
 db.init_app(app)
 
-##from models import *
 class UploadFileForm(FlaskForm):
     file = FileField("File", validators=[InputRequired()])
     submit = SubmitField("Upload File")
